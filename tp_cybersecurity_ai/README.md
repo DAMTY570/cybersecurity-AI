@@ -1,5 +1,3 @@
-### `tp_cybersecurity_ai/README.md`
-
 ```markdown
 # TP - Sécurité des Données et Intelligence Artificielle
 
