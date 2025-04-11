@@ -1,83 +1,98 @@
-```markdown
-# TP - Sécurité des Données et Intelligence Artificielle
+<p align="center">
+  <img src="banner.png" alt="Project Banner" width="100%">
+</p>
 
-Ce projet met en œuvre un pipeline complet de chiffrement, modélisation, et sécurisation d'une API prédictive. Il est divisé en 3 grandes parties : préparation des données, création d’une API Flask, et renforcement de la sécurité.
+<h1 align="center">🔐 AI & Data Security – End-to-End Encrypted Prediction API</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Data%20Security%20-blueviolet" />
+  <img src="https://img.shields.io/badge/Project-Flask%20API%20%7C%20Encrypted%20AI-green" />
+  <img src="https://img.shields.io/badge/Topic-Cryptography%20%26%20ML-red" />
+  <img src="https://img.shields.io/badge/Python-3.9.6-blue" />
+  <img src="https://img.shields.io/badge/License-MIT-green" />
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen" />
+</p>
 
 ---
 
-## Structure du projet
+This project implements a complete pipeline combining **data encryption**, **machine learning**, and **secure API deployment**.
 
-```
+---
+
+## 📁 Project Structure
+
+```bash
 tp_cybersecurity_ai/
-├── data/                         # Données sources et clés
+├── data/                         # Source data and encryption key
 │   ├── Student_Performance.csv
 │   ├── Student_Performance_encrypted.csv
 │   └── file_key.key
 │
-├── model/                        # Modèle sauvegardé
+├── model/                        # Trained model
 │   └── linear_model.pkl
 │
-├── api/                          # Code de l’API Flask
+├── api/                          # Flask API code
 │   ├── app.py
 │   └── secrets.py
 │
-├── client/                       # Script client test
+├── client/                       # Client-side test script
 │   └── client_test.py
 │
-├── prepare_data.py              # Préparation et entraînement du modèle
-├── requirements.txt             # Dépendances Python
+├── prepare_data.py              # Data preparation and model training
+├── requirements.txt             # Python dependencies
 └── README.md
 ```
 
 ---
 
-##  Étapes réalisées
+## ✅ Workflow Summary
 
-###  Partie 1 : Préparation des données
+### 🧪 Part 1: Data Preparation
 
-- Génération d'une **clé de chiffrement Fernet**
-- Chiffrement du fichier `Student_Performance.csv`
-- Déchiffrement pour entraînement du modèle
-- Sélection de variables (`Hours Studied`, `Previous Scores`) → `Performance Index`
-- Entraînement d'un **modèle de régression linéaire**
-- Sauvegarde du modèle avec `joblib`
+- Generate a **Fernet encryption key**
+- Encrypt the `Student_Performance.csv` dataset
+- Decrypt the dataset for training
+- Select input features: `Hours Studied`, `Previous Scores`
+- Target variable: `Performance Index`
+- Train a **linear regression model**
+- Save the model using `joblib`
 
-###  Partie 2 : Création de l’API Flask
+### 🔌 Part 2: Flask API
 
-- API Flask exposée localement (`http://127.0.0.1:5000`)
-- Route `/predict` :
-  - Reçoit des données chiffrées
-  - Vérifie la clé API (`x-api-key`)
-  - Retourne la prédiction du modèle
-- Possibilité d’exposer l’API publiquement avec `ngrok`
+- Local Flask API running at `http://127.0.0.1:5000`
+- `/predict` endpoint:
+  - Receives encrypted input
+  - Validates `x-api-key` header
+  - Returns model prediction
+- Optionally expose the API via `ngrok` for public access
 
-###  Partie 3 : Renforcement de la sécurité 
+### 🔐 Part 3: Security Features
 
-| Sécurité                  | Implémentée | Description |
-|---------------------------|-------------|-------------|
-| 🔐 Chiffrement des données | ✅           | Le client chiffre les entrées avec `Fernet`. |
-| 🗝️ Authentification         | ✅           | L’API vérifie la clé `x-api-key`.            |
-| 🔒 Hachage SHA-256         | ✅           | Le serveur compare le **hash** de la clé API. |
+| Security Layer         | Implemented | Description                                                |
+|------------------------|-------------|------------------------------------------------------------|
+| 🔐 Data Encryption      | ✅           | Client encrypts input using `Fernet`                       |
+| 🗝️ API Key Auth         | ✅           | API validates a secure `x-api-key` header                  |
+| 🔒 SHA-256 Hash Check   | ✅           | Server compares **hashed** API key for validation          |
 
 ---
 
-##  Utilisation
+## 🚀 How to Use
 
-### 1. Préparer les données et entraîner le modèle
+### 1. Prepare the Data & Train the Model
 
 ```bash
 python3 prepare_data.py
 ```
 
-### 2. Lancer l’API Flask
+### 2. Run the Flask API
 
 ```bash
 python3 -m tp_cybersecurity_ai.api.app
 ```
 
-Accessible sur : `http://127.0.0.1:5000`
+API accessible at: `http://127.0.0.1:5000`
 
-### 3. Tester avec le client sécurisé
+### 3. Test with Encrypted Client Request
 
 ```bash
 python3 tp_cybersecurity_ai/client/client_test.py
@@ -85,19 +100,19 @@ python3 tp_cybersecurity_ai/client/client_test.py
 
 ---
 
-## Exposer l’API avec Ngrok
+## 🌐 Expose API with Ngrok
 
 ```bash
 ngrok http 5000
 ```
 
-Utilise ensuite l’URL générée (`https://xxxxx.ngrok-free.app/predict`) dans `client_test.py` pour tester l’API depuis l’extérieur.
+Use the generated URL (e.g. `https://xxxxx.ngrok-free.app/predict`) inside `client_test.py` to test secure requests from the outside.
 
 ---
 
-## Dépendances
+## 📦 Dependencies
 
-```
+```txt
 flask
 joblib
 cryptography
@@ -105,7 +120,7 @@ requests
 scikit-learn
 ```
 
-Installe-les avec :
+Install with:
 
 ```bash
 pip install -r requirements.txt
@@ -113,9 +128,8 @@ pip install -r requirements.txt
 
 ---
 
-## Auteur
+## 👨‍💻 Author
 
-Abraham Krah  
-M2 IA School · TP Sécurité des Données & IA – 2025
-```
+**Abraham Krah**  
+M2 IA School · Data & AI Security Project – 2025
 
