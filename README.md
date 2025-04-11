@@ -131,5 +131,5 @@ pip install -r requirements.txt
 ## 👨‍💻 Author
 
 **Abraham Krah**  
-M2 IA School · Data & AI Security Project – 2025
+Data & AI Security Project – 2025
 
