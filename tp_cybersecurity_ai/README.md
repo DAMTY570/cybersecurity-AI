@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.png" alt="Project Banner" width="100%">
+  <img src="banner.png" alt="Project Banner" width="50%">
 </p>
 
 <h1 align="center">🔐 AI & Data Security – End-to-End Encrypted Prediction API</h1>
